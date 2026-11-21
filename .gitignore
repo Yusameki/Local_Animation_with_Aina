@@ -1,0 +1,22 @@
+# 大文件不进仓库：本仓库只放方法论文档
+*.mp4
+*.mov
+*.png
+*.jpg
+*.jpeg
+*.webp
+*.gif
+*.safetensors
+*.ckpt
+*.pt
+*.pth
+*.wav
+*.mp3
+frames/
+out*/
+logs/
+*.log
+
+# 系统
+.DS_Store
+Thumbs.db
