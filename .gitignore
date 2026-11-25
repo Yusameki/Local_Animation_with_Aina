@@ -6,6 +6,11 @@
 *.jpeg
 *.webp
 *.gif
+!assets/
+!assets/*.png
+!assets/*.jpg
+!assets/*.jpeg
+!assets/*.webp
 *.safetensors
 *.ckpt
 *.pt
