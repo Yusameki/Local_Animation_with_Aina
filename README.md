@@ -94,11 +94,11 @@
 
 | 环节 | 用的东西 | 说明 |
 | --- | --- | --- |
-| 出图底座 | **ComfyUI** + **NoobAI-XL** (SDXL 二次元基座) | 本地部署，抽卡式出首帧 |
+| 出图底座 | **[ComfyUI](https://github.com/Comfy-Org/ComfyUI)** + **[NoobAI-XL](https://huggingface.co/Laxhar/noobai-XL-1.1)** (SDXL 二次元基座) | 本地部署，抽卡式出首帧 |
 | 精修 | Latent 放大 + 二次采样（hires） | 低清打底再放大精修，救细节 |
-| 图生视频 | **Minimax H3**（fl2va，纯首帧驱动） | 以首帧为锚，生成带运镜/对白的短片 |
-| 后期 | **ffmpeg** | 裁切、拼接、混音、字幕卡、抽帧 |
-| 外挂记忆 | 一套自建的本地 Agent 工作流 | 让整个长任务能在一个会话里推进 |
+| 图生视频 | **[Minimax H3](https://platform.minimax.cn/docs/guides/local-deploy-h3)**（fl2va，纯首帧驱动） | 以首帧为锚，生成带运镜/对白的短片 |
+| 后期 | **[ffmpeg](https://ffmpeg.org/)** | 裁切、拼接、混音、字幕卡、抽帧 |
+| 外挂记忆 | 一套自建的本地 Agent 工作流 | 作者自用的长任务会话辅助，非复现必需，没有也能照常出片 |
 
 > 这不是「纯自研」「完全原创」——是**把一群优秀的开源项目按我的需求拧成一条产线**。
 > 所有功劳归上游：ComfyUI、NoobAI、Minimax、ffmpeg 以及背后每一个开源作者。
@@ -111,11 +111,11 @@
 
 - **显卡与显存**：作者实测环境为 **12 GB 显存**——出图（`1536×864` + hires 二采到 `2304×1296`）吃得下，但图生视频更吃显存，**出图与出视频必须串行**（若本地还运行了大语言模型，长任务前需结束进程以释放显存）。实际门槛以你本机实测为准。
 - **基础软件**：
-  - **ComfyUI**（官方发行版即可，用作本地出图与出视频的工作流引擎）
-  - **ffmpeg**（用于后期裁切、拼接、混音、字幕卡与抽帧核对）
+  - **[ComfyUI](https://github.com/Comfy-Org/ComfyUI)**（官方发行版即可，用作本地出图与出视频的工作流引擎）
+  - **[ffmpeg](https://ffmpeg.org/)**（用于后期裁切、拼接、混音、字幕卡与抽帧核对）
   - 基本的批处理脚本环境（如 Python，用于批量跑图与后期参数化）
 - **自备模型与素材**（本仓库不提供模型下载与具体配方）：
-  - **模型文件**（需从各自官方渠道获取）：`NoobAI-XL`（SDXL 二次元基座，放 `models/checkpoints/`）、`Minimax H3`（fl2va 权重，按官方说明放置）、以及你自己的风格/角色 LoRA（放 `models/loras/`）。
+  - **模型文件**（需从各自官方渠道获取）：[NoobAI-XL](https://huggingface.co/Laxhar/noobai-XL-1.1)（SDXL 二次元基座，放 `models/checkpoints/`）、[Minimax H3](https://platform.minimax.cn/docs/guides/local-deploy-h3)（fl2va 权重，按官方说明放置）、以及你自己的风格/角色 LoRA（放 `models/loras/`）。
   - **个人素材与设定**：角色触发词、提示词、工作流编排，以及后期所需的配乐与字幕文案。
 
 ### 按这个顺序读
